@@ -1,0 +1,116 @@
+@import "tailwindcss";
+@import "./styles/tokens.css";
+
+@layer base {
+  * {
+    box-sizing: border-box;
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  html,
+  body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    background-color: var(--bg-0);
+    color: var(--text-1);
+    font-family: var(--font-ui);
+    user-select: none;
+    -webkit-user-select: none;
+    overflow: hidden;
+  }
+}
+
+/* iOS Glass Effect */
+.ios-glass {
+  background: var(--glass-bg);
+  backdrop-filter: var(--glass-blur);
+  -webkit-backdrop-filter: var(--glass-blur);
+  border: 1px solid var(--line);
+  box-shadow: var(--glass-top-highlight);
+}
+
+/* Glass with solid fallback */
+.ios-glass-solid {
+  background: var(--bg-1);
+  border: 1px solid var(--line);
+}
+
+/* Squircle Icon Tile */
+.ios-icon-tile {
+  background: var(--bg-2);
+  border-radius: 22.37%;
+  border: 1px solid var(--line);
+  box-shadow: var(--shadow-tile), var(--glass-top-highlight);
+  position: relative;
+  overflow: hidden;
+}
+
+[data-theme="light"] .ios-icon-tile {
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08), 0 8px 16px -6px rgba(0, 0, 0, 0.12);
+  border: 1px solid rgba(0, 0, 0, 0.06);
+}
+
+/* Wallpaper Background */
+.os-wallpaper {
+  background-color: var(--bg-0);
+  background-image: 
+    linear-gradient(to bottom, rgba(10, 10, 11, 0.45), rgba(10, 10, 11, 0.72)),
+    url("./assets/images/ios_wallpaper_silk_1790884690329.webp");
+  background-size: cover;
+  background-position: center;
+  position: relative;
+}
+
+[data-theme="light"] .os-wallpaper {
+  background-color: var(--bg-0);
+  background-image: 
+    linear-gradient(to bottom, rgba(248, 246, 242, 0.88), rgba(239, 237, 232, 0.94)),
+    url("./assets/images/ios_wallpaper_silk_1790884690329.webp");
+  background-size: cover;
+  background-position: center;
+}
+
+/* Grain overlay */
+.os-grain {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  display: none;
+  opacity: 0.045;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+  background-size: 140px 140px;
+}
+
+/* Utility Font classes */
+.font-display {
+  font-family: var(--font-display);
+}
+
+.font-ui {
+  font-family: var(--font-ui);
+}
+
+.font-hindi {
+  font-family: var(--font-hindi);
+}
+
+.font-mono {
+  font-family: var(--font-mono);
+}
+
+/* Hide scrollbars */
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+/* Focus outline */
+.ios-focus:focus-visible {
+  outline: 2px solid var(--text-1);
+  outline-offset: 2px;
+}
